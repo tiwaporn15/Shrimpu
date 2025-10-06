@@ -40,7 +40,12 @@ export default function CatalogScreen() {
           return (
             <TouchableOpacity
               style={[styles.card, { backgroundColor: cardColor, borderColor: cardColor }]}
-              onPress={() => navigation.navigate('ShrimpDetail', { shrimpId: item.id })}
+              onPress={() => {
+                if (item.id === 'white_shrimp') navigation.navigate('WhiteShrimp');
+                else if (item.id === 'banana_shrimp') navigation.navigate('BananaShrimp');
+                else if (item.id === 'tiger_shrimp') navigation.navigate('TigerShrimp');
+              }}
+
             >
               <Image source={item.img} style={styles.img} />
               <Text style={[styles.name, { color: '#333' }]}>{item.name}</Text>
