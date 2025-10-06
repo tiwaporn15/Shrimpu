@@ -3,7 +3,6 @@ import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'rea
 import { useNavigation } from '@react-navigation/native';
 import { useThemeX } from '../../context/ThemeContext';
 import { useLang } from '../../context/LangContext';
-
 import { SHRIMP_DATA } from '../../data/shrimpData';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -38,14 +37,20 @@ export default function WhiteShrimpScreen() {
           ))}
         </View>
 
-        <Text style={[styles.sectionTitle, { color: colors.text, marginTop: 24 }]}>Check Price</Text>
-        {shrimp.prices.map((p, i) => (
+         {/* Prices */}
+        <Text style={[styles.sectionTitle, { color: colors.text, marginTop: 24 }]}>
+          {lang === 'th' ? 'ราคาตามร้านค้า' : 'Check Price'}
+        </Text>
+
+         {shrimp.prices.map((p, i) => (
           <View key={i} style={[styles.priceCard, { borderColor: colors.border }]}>
             <View style={{ flex: 1 }}>
               <Text style={[styles.priceName, { color: colors.text }]}>{p.retailer}</Text>
               <Text style={{ color: colors.muted }}>{p.size}</Text>
             </View>
-            <Text style={[styles.priceValue, { color: colors.text }]}>{p.price}<Text style={{ fontSize: 14 }}>{p.unit}</Text></Text>
+            <Text style={[styles.priceValue, { color: colors.text }]}>{p.price}
+              <Text style={{ fontSize: 14 }}>{p.unit}</Text>
+            </Text>
             <Image source={p.logo} style={styles.retailerLogo} />
           </View>
         ))}
@@ -59,7 +64,6 @@ const styles = StyleSheet.create({
   backButton: { position: 'absolute', top: 40, left: 16, backgroundColor: '#fff8', padding: 6, borderRadius: 20 },
   title: { fontSize: 28, fontWeight: '800', marginTop: 12 },
   description: { fontSize: 16, marginVertical: 12, lineHeight: 24 },
-  sourceText: { fontSize: 12, opacity: 0.7, marginTop: 4 },
   sectionTitle: { fontSize: 20, fontWeight: '700', marginVertical: 12 },
   card: { borderWidth: 1, borderRadius: 12, padding: 12 },
   row: { flexDirection: 'row', justifyContent: 'space-between', paddingVertical: 6 },
