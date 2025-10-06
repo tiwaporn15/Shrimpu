@@ -13,9 +13,9 @@ export default function CatalogScreen() {
   const { colors } = useThemeX();
 
   const shrimps = [
-    { id: 'white_shrimp', name: t('shrimps.white'), img: require('../../assets/images/shrimp-icon.png') },
-    { id: 'banana_shrimp', name: t('shrimps.banana'), img: require('../../assets/images/shrimp-icon.png') },
-    { id: 'tiger_shrimp', name: t('shrimps.tiger'), img: require('../../assets/images/shrimp-icon.png') },
+    { id: 'white_shrimp', name: t('Whiteleg Shrimp \nกุ้งขาว'), img: require('../../assets/images/shrimp-icon.png') },
+    { id: 'banana_shrimp', name: t('Banana Shrimp \nกุ้งแชบ๊วย'), img: require('../../assets/images/shrimp-icon.png') },
+    { id: 'tiger_shrimp', name: t('Black Tiger Shrimp \nกุ้งลายเสือ'), img: require('../../assets/images/shrimp-icon.png') },
   ];
 
   const cardColors = ['#FEF7DF', '#FEEBDA', '#E6F5FF']; // สีเหลืองอ่อน ส้มอ่อน ฟ้าอ่อน

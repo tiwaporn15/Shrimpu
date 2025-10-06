@@ -13,7 +13,10 @@ import IngredientScreen from './src/screens/IngredientScreen';
 import SettingsScreen from './src/screens/SettingsScreen';
 import ScanScreen from './src/screens/ScanScreen';
 import CatalogScreen from './src/screens/CatalogScreen';
-import ShrimpDetailScreen from './src/screens/ShrimpDetailScreen';
+import WhiteShrimpScreen from './src/screens/ShrimpDetail/ShrimpDetailWhite';
+import BananaShrimpScreen from './src/screens/ShrimpDetail/ShrimpDetailBanana';
+import TigerShrimpScreen from './src/screens/ShrimpDetail/ShrimpDetailTiger';
+
 
 
 const Tab = createBottomTabNavigator();
@@ -62,7 +65,10 @@ function HomeStack(){
         options={{ headerShown: false }} // ซ่อน Header ของหน้า Catalog (เพื่อให้ใช้ Header ที่สร้างเอง)
       />
       
-      <Stack.Screen name="ShrimpDetail" component={ShrimpDetailScreen} />
+      <Stack.Screen name="WhiteShrimp" component={WhiteShrimpScreen} options={{ headerShown: false }} />
+<Stack.Screen name="BananaShrimp" component={BananaShrimpScreen} options={{ headerShown: false }} />
+<Stack.Screen name="TigerShrimp" component={TigerShrimpScreen} options={{ headerShown: false }} />
+
 
     </Stack.Navigator>
 

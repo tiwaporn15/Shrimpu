@@ -1,39 +1,19 @@
-// ✅ File 3: src/screens/ShrimpDetailScreen.js
-
 import React from 'react';
 import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-<<<<<<< Updated upstream:Edit2/shrimp-main/src/screens/ShrimpDetailScreen.js
-import { useThemeX } from '../context/ThemeContext';
-import { useLang } from '../context/LangContext';
-import { SHRIMP_DATA } from '../data/shrimpData';
-import { Ionicons } from '@expo/vector-icons';
-
-export default function ShrimpDetailScreen({ route }) {
-  const { shrimpId } = route.params;
-  const shrimp = SHRIMP_DATA[shrimpId];
-=======
 import { useThemeX } from '../../context/ThemeContext';
 import { useLang } from '../../context/LangContext';
 import { SHRIMP_DATA } from '../../data/shrimpData';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function WhiteShrimpScreen() {
-  const shrimp = SHRIMP_DATA['banana_shrimp'];
->>>>>>> Stashed changes:shrimp-main/src/screens/ShrimpDetail/ShrimpDetailBanana.js
+  const shrimp = SHRIMP_DATA['white_shrimp'];
   const navigation = useNavigation();
   const { colors } = useThemeX();
   const { t, lang } = useLang();
 
-  if (!shrimp) {
-    return (
-      <View style={styles.centered}><Text>Data not found</Text></View>
-    );
-  }
-
   return (
     <ScrollView style={{ flex: 1, backgroundColor: colors.bg }}>
-      {/* Image and Back */}
       <View>
         <Image source={shrimp.image} style={styles.headerImage} />
         <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
@@ -41,20 +21,16 @@ export default function WhiteShrimpScreen() {
         </TouchableOpacity>
       </View>
 
-      {/* Detail Section */}
       <View style={{ padding: 16 }}>
         <Text style={[styles.title, { color: colors.text }]}>{shrimp.nameKey[lang]}</Text>
         <Text style={[styles.description, { color: colors.text }]}>{shrimp.description[lang]}</Text>
 
-<<<<<<< Updated upstream:Edit2/shrimp-main/src/screens/ShrimpDetailScreen.js
-        {/* Source */}
-        <Text style={styles.sourceText}>source: {shrimp.source}</Text>
-=======
-      <Text style={[styles.sourceText, { textAlign: 'right' }]}>source: TrueID Food{shrimp.source}</Text>
->>>>>>> Stashed changes:shrimp-main/src/screens/ShrimpDetail/ShrimpDetailBanana.js
+      <Text style={[styles.sourceText, { textAlign: 'right' }]}>source: Fourgle Thailand{shrimp.source}</Text>
 
-        {/* Nutrition Section */}
-        <Text style={[styles.sectionTitle, { color: colors.text }]}>Nutrition Facts</Text>
+       <Text style={[styles.sectionTitle, { color: colors.text }]}>
+        {lang === 'th' ? 'โภชนาการ' : 'Nutrition Facts'}
+      </Text>
+
         <View style={[styles.card, { borderColor: colors.border }]}>
           {shrimp.nutrition.map((item, i) => (
             <View key={i} style={styles.row}>
@@ -62,21 +38,14 @@ export default function WhiteShrimpScreen() {
               <Text style={[styles.value, { color: colors.text }]}>{item.value}</Text>
             </View>
           ))}
-          <Text style={[styles.sourceText, { alignSelf: 'flex-end' }]}>source: califorlife</Text>
         </View>
 
-<<<<<<< Updated upstream:Edit2/shrimp-main/src/screens/ShrimpDetailScreen.js
-        {/* Price List */}
-        <Text style={[styles.sectionTitle, { color: colors.text, marginTop: 24 }]}>Check Price</Text>
-        {shrimp.prices.map((p, i) => (
-=======
          {/* Prices */}
         <Text style={[styles.sectionTitle, { color: colors.text, marginTop: 24 }]}>
           {lang === 'th' ? 'ราคาตามร้านค้า' : 'Check Price'}
         </Text>
 
          {shrimp.prices.map((p, i) => (
->>>>>>> Stashed changes:shrimp-main/src/screens/ShrimpDetail/ShrimpDetailBanana.js
           <View key={i} style={[styles.priceCard, { borderColor: colors.border }]}>
             <View style={{ flex: 1 }}>
               <Text style={[styles.priceName, { color: colors.text }]}>{p.retailer}</Text>
@@ -94,12 +63,7 @@ export default function WhiteShrimpScreen() {
 }
 
 const styles = StyleSheet.create({
-<<<<<<< Updated upstream:Edit2/shrimp-main/src/screens/ShrimpDetailScreen.js
-  centered: { flex: 1, justifyContent: 'center', alignItems: 'center' },
-  headerImage: { width: '100%', height: 240, resizeMode: 'cover' },
-=======
   headerImage: { width: '100%', height: 450, resizeMode: 'cover' },
->>>>>>> Stashed changes:shrimp-main/src/screens/ShrimpDetail/ShrimpDetailBanana.js
   backButton: { position: 'absolute', top: 40, left: 16, backgroundColor: '#fff8', padding: 6, borderRadius: 20 },
   title: { fontSize: 28, fontWeight: '800', marginTop: 12 },
   description: { fontSize: 16, marginVertical: 12, lineHeight: 24 },
